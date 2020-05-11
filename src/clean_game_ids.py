@@ -4,7 +4,7 @@ import numpy as np
 def game_id_cleaner(df_:pd.DataFrame) -> pd.DataFrame:
     '''
     Drops games that do not have a duplicate game_id.
-    In 2017, there were 30 games that did not have 
+    In 2017, theregit st were 30 games that did not have 
     the complete game for both teams. For example,
     Week 17 of Season 17, NO played TB. The only data
     was for NO and did not have TB, so there is no reason 

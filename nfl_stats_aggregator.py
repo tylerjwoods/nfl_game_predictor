@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from src.aggregate_team_stats_class import AggregatedStats
-from src.get_team_stats import YearlyTeamStats
+from src.get_team_game_stats import YearlyTeamStats
 from src.clean_game_ids import game_id_cleaner
 
 def get_stats():
