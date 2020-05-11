@@ -39,7 +39,7 @@ class AggregatedStats():
         df.loc[(df['opponent'] =='STL'),'opponent'] = 'LA'
 
         # Call _game_id_cleaner method due to some games not being complete.
-        df = _game_id_cleaner(df)
+        df = self._game_id_cleaner(df)
 
         return df
 
