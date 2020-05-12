@@ -3,6 +3,7 @@ import pandas as pd
 
 from src.aggregate_team_stats_class import AggregatedStats
 from src.get_team_game_stats import YearlyTeamStats
+from src.clean_game_ids import game_id_cleaner
 
 def main():
 
@@ -22,9 +23,13 @@ def main():
             team_stats_aggregated.aggregated_stats.drop(columns=column_to_drop, inplace=True)
         except:
             pass
+        
+    # Clean out rows again, just to ensure we have correct games
+    df = team_stats_aggregated.aggregated_stats
+    df = game_id_cleaner(df)
     
     # Store the aggregated stats into a csv file for later use
-    team_stats_aggregated.aggregated_stats.to_csv('data/aggregated_2014_to_2019.csv', index=False)
+    df.to_csv('data/aggregated_2014_to_2019.csv', index=False)
 
 if __name__ == '__main__':
     main()

@@ -3,11 +3,11 @@ import pandas as pd
 
 from src.get_team_game_stats import YearlyTeamStats
 
-def get_stats():
+def get_stats() -> None:
     '''
     Using YearlyTeamStats class, get team stats for each
     year and store into a dataframe.
-    Then store all of the seasons into one dataframe.
+    Then store all of the seasons into one dataframe and save to CSV file.
     '''
     user = input('Enter API Key: ') #API Key from mysportsfeeds
     password = input('Enter Password: ') #Password from mysportsfeeds 
