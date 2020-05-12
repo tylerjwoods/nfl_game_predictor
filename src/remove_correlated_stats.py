@@ -12,8 +12,10 @@ def remove_corr_stats(df) -> pd.DataFrame:
     -------
     df: pd.DataFrame()
     '''
-    columns_to_remove = ['passAttempts', 'passYardsPerAtt', 'passIntPct', 'pass40Plus', 'sacks_allowed_yards',\
-        'rush1stDowns', 'rush40Plus', 'recFumbles']
+    columns_to_remove = ['home_passAttempts', 'away_passAttempts', 'home_passYardsPerAtt','away_passYardsPerAtt', \
+        'home_passIntPct','away_passIntPct', 'home_pass40Plus', 'away_pass40Plus',\
+        'home_sacks_allowed_yards','away_sacks_allowed_yards','home_rush1stDowns', 'away_rush1stDowns',\
+        'home_rush40Plus','away_rush40Plus', 'home_recFumbles','away_recFumbles']
 
     df.drop(columns=columns_to_remove,inplace=True)
 

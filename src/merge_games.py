@@ -67,7 +67,4 @@ def merge_game_ids(df_1, df_2):
         full_organized[each_column] = full_df.loc[:,each_column]
 
     # Store dataframe in a CSV for later use
-
     full_organized.to_csv('data/merged_games.csv',index=False)
-
-    return full_organized

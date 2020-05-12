@@ -134,3 +134,5 @@ data/
 # notebooks
 notebooks/
 nfl_notebook2.ipynb
+random_forest.ipynb
+logistic_regression.ipynb
