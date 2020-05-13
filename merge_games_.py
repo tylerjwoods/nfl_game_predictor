@@ -4,7 +4,7 @@ import copy
 
 from src.merge_games import merge_game_ids
 
-def main():
+def merger():
     '''
     From the function 'nfl_stats_aggregator.py', the aggregated_2014_to_2019.csv file
     was created and stored in data/ folder.
@@ -14,12 +14,16 @@ def main():
     merge_game_ids stores the csv into a file 'data/merged_games.csv' for use in
     machine learning models
     '''
+    
+    num_games = int(input('Input Number of Games to Aggregate: '))
+    
     # pull in two copies of the aggregated data to prevent python
     # from incorrectly referencing the dataframe as one
-    df_home = pd.read_csv('data/aggregated_2014_to_2019.csv')
-    df_away = pd.read_csv('data/aggregated_2014_to_2019.csv')  
+    file_name = 'data/aggregated_2014_to_2019_{}.csv'.format(num_games)
+    df_home = pd.read_csv(file_name)
+    df_away = pd.read_csv(file_name)  
 
     merge_game_ids(df_home, df_away)
 
 if __name__ == '__main__':
-    main()
+    merger()

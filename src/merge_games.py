@@ -65,6 +65,8 @@ def merge_game_ids(df_1, df_2):
 
     for each_column in full_df.columns.values:
         full_organized[each_column] = full_df.loc[:,each_column]
-
+    
+    num_games = int(input('Input Number of Games to Aggregate: '))
+    file_name = 'data/merged_games_{}.csv'.format(num_games)
     # Store dataframe in a CSV for later use
-    full_organized.to_csv('data/merged_games.csv',index=False)
+    full_organized.to_csv(file_name,index=False)

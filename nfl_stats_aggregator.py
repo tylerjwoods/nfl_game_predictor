@@ -4,7 +4,7 @@ import pandas as pd
 from src.aggregate_team_stats_class import AggregatedStats
 from src.clean_game_ids import game_id_cleaner
 
-def main():
+def aggregator():
     '''
     From the function 'obtain_stats.py', the stats_2014_to_2019.csv file was created
     and stored in the data/ folder.
@@ -21,9 +21,11 @@ def main():
 
     # Clean out the rows that do not have duplicate game_ids
     df = game_id_cleaner(df)
+    
+    num_games = int(input('Input Number of Games to Aggregate: '))
 
     # Aggregate team stats using AggregatedStats class
-    team_stats_aggregated = AggregatedStats(df, 6)
+    team_stats_aggregated = AggregatedStats(df, num_games)
 
     # Drop columns that are not needed
     columns_to_drop = ['level_0','index']
@@ -38,7 +40,8 @@ def main():
     df = game_id_cleaner(df)
     
     # Store the aggregated stats into a csv file for later use
-    df.to_csv('data/aggregated_2014_to_2019.csv', index=False)
+    file_name = 'data/aggregated_2014_to_2019_{}.csv'.format(num_games)
+    df.to_csv(file_name, index=False)
 
 if __name__ == '__main__':
-    main()
+    aggregator()
