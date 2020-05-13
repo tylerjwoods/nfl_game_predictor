@@ -5,6 +5,7 @@
 - [Basic Overview](#basic-overview)
   - [Context](#context)
   - [Goal](#goal)
+  - [Method](#method)
 - [Exploring Data](#exploring-data)
   - [Initial Intake](#initial-intake)
   - [Feature Selection](#feature-selection)
@@ -28,6 +29,12 @@ For anyone who has played sports gambling in their lives, they know one thing: i
 Develop an NFL game predictor that predicts which team will win the game. The model explores the important features of making the prediction.
 
 Develop betting schemes that can maximize the chances of winning (beat Vegas).
+
+### Method
+
+The intent of this project is to make accurate future predictions. With that in mind, a model will be built using games from previous seasons and then predictions for the latest season, 2019, will be analyzed for determining if this model should be used to beat Vegas.
+
+![Method](images/method.png)
 
 ## Exploring Data
 
@@ -54,7 +61,7 @@ A heat map was used to find highly correlated stats. For example, as shown below
 
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
-For each team, I predicted that the following would be the most important features:
+For each game, I predicted that the following would be the most important features:
 | Features      | Features       |
 | ------------- | -------------  |
 | Team Score    | Opponent Score |
