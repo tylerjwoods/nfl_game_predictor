@@ -63,25 +63,18 @@ A heat map was used to find highly correlated stats. For example, as shown below
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
 For each game, I predicted that the following would be the most important features:
-| Home_Team_Features | Away_Team_Features|
-| -------------      | -------------     |
-| Team Score         | Team Score        |
-| QB Rating          | QB Rating         |
-| Opponent Score     | Opponent Score    |
-| Sacks              | Sacks             |
-| Interceptions      | Interceptions     |
-| Passing TDs        | Passing TDs       |
-| Fumbles            | Fumbles           |
-| Wins Past Games    | Wins Past Games   |
-| Passing Ints       | Passing Ints      |
-
-| Features      | Features       |
-| ------------- | -------------  |
-| Team Score    | Opponent Score |
-| QB Rating     | Sacks          |
-| Interceptions | Passing TDs    |
-| Fumbles       | Wins Past Games|
-| Passing Ints  |                |
+| Rank         | Features                   |
+| -------------| -------------              |
+| 1            | xHome_Team_Score           |
+| 2            | xAway_Team_Score           |
+| 3            | xHome_Team_Opponent_Score  |
+| 4            | xAway_Team_Opponent_Score  |
+| 5            | xHome_Team_QB_Rating       |
+| 6            | xAway_Team_QB_Rating       |
+| 7            | xHome_Team_Wins_Past_Games |
+| 8            | xAway_Team_Wins_Past_Games |
+| 9            | xHome_Team_Sacks           |
+| 10           | xAway_Team_Sacks           |
 
 
 ## Model Selection
@@ -104,3 +97,6 @@ Then using all of the stats available, the number of trees were varied and used 
 As shown, the accuracy doesn't improve by much even by adding in all of the extra features. Also, as shown, good number of trees to choose is 500 for this model.
 
 The full model was built using all of the data from 2014-2018 seasons to develop the important features that the Random Forest found as well as developing an ROC curve to compare against other models.
+
+According to the Random Forest model, the following features were most important:
+
