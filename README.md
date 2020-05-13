@@ -12,6 +12,8 @@
 - [Model Selection](#model-selection)
   - [Logistic Regression](#logistic-regression)
   - [Random Forest](#random-forest)
+  - [Gradient Boosting](#gradient-boosting)
+- [In Action](#in-action)
 - [Future Considerations](#future-considerations)
 - [License](#license)
 
@@ -115,5 +117,35 @@ According to the Random Forest model, the following features were most important
 
 And finally for the Random Forest model, the ROC curve and AOC score:
 
-![Random-Forest-ROC-AUC](images/rand_fore_roc_curve)
+![Random-Forest-ROC-AUC](images/rand_fore_roc_curve.png)
+
+### Gradient Boosting
+
+Similar to Random Forest, I used only the stats that I chose as important but varied learning rates for the gradient boosting model with a 5 K-Fold split.
+
+![Gradient-Boosted-K-Fold-My-Stats](images/gradient_boost_vary_learning_rate_my_stats.png)
+
+And for using all stats:
+
+![Gradient-Boosted-K-Fold-All-Stats](images/gradient_boost_vary_learning_rate_all_stats.png)
+
+According to the Gradient Boosted model, the following features were most important:
+
+| Rank         | Features                    |
+| -------------| -------------               |
+| 1            | Away_Team_Score             |
+| 2            | Home_Team_Wins_Past_Games   |
+| 3            | Home_Team_Score             |
+| 4            | Home_Team_Punt_Inside_20_Pct|
+| 5            | Home_Team_Opponent_Score    |
+| 6            | Home_Team_Sacks_Allowed     |
+| 7            | Away_Team_Sacks_Allowed     |
+| 8            | Away_Team_QB_Rating         |
+| 9            | Home_Team_Third_Down_Pct    |
+| 10           | Home_Team_Sack_Yards        |
+
+The ROC curve and AOC curve for gradient boosted:
+
+![Random-Forest-ROC-AUC](images/gradient_boost_roc_curve.png)
+
 
