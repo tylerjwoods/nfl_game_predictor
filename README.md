@@ -49,10 +49,14 @@ Once the stats were aggregated for each team, the away team and home team and to
 
 ### Feature Selection
 
-A heat map was used to find highly correlated stats. For example, as shown below, 'passAvg' and 'passYardPerAtt' were (obviously) very correlated. Based off this, seven features were removed.
-
+A heat map was used to find highly correlated stats. For example, as shown below, 'passAvg' and 'passYardPerAtt' were (obviously) very correlated. Based off this, fourteen features were removed.
 ![Heat Map 1](images/heat_map_1.png)
 
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
-
+For each team, I predicted that the following would be the most important features:
+- Team Score     - Opponent Score
+- QB Rating      - Sacks
+- Interceptions  - Passing Touchdowns
+- Fumbles        - Wins Past Games
+- Passing Ints   
