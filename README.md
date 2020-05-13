@@ -17,9 +17,9 @@
 
 ### Context
 
-From Ocean's 11:
+In the words of Danny Ocean from Ocean's 11
 
-"The house always wins. Play long enough, you never change the stakes, the house takes you. Unless, when that perfect hand comes along, you bet big, and then you take the house."
+>"The house always wins. Play long enough, you never change the stakes, the house takes you. Unless, when that perfect hand comes along, you bet big, and then you take the house."
 
 For anyone who has played sports gambling in their lives, they know one thing: it is incredibly difficult to beat the house. Even if you pick winners more than 50.1% of the time, you will still lose money in the long run.
 
@@ -55,8 +55,12 @@ A heat map was used to find highly correlated stats. For example, as shown below
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
 For each team, I predicted that the following would be the most important features:
-- Team Score     - Opponent Score
-- QB Rating      - Sacks
-- Interceptions  - Passing Touchdowns
-- Fumbles        - Wins Past Games
-- Passing Ints   
+| Features                       |
+| ------------- | -------------  |
+| Team Score    | Opponent Score |
+| QB Rating     | Sacks          |
+| Interceptions | Passing TDs    |
+| Fumbles       | Wins Past Games|
+| Passing Ints  |                |
+
+
