@@ -33,3 +33,26 @@ Develop betting schemes that can maximize the chances of winning (beat Vegas).
 
 ### Initial Intake
 
+Data was taken from API provided by https://www.mysportsfeeds.com/. For each team in seasons 2014-2019, approximately 50 stats for each game was stored. The function 'obtain_stats.py' will get the stats from the API. Here is an example of the CSV file that was created:
+
+![Data Intake](images/data_intake.png)
+
+One of the goals of this project is to predict future games. So stats from the current game cannot be used to predict whether or not that team won (i.e., target leakage). 
+
+The function 'nfl_stats_aggregator.py' takes previous games and averages the stats. I started with aggregating the previous six games. When calling the AggregatedStats class, the number of games to aggregate across can be changed.
+
+![Aggregated Stats](images/aggregated_stats.png)
+
+Once the stats were aggregated for each team, the away team and home team and to merged into one row for a single row. This was done by merging the dataframe on game_id.
+
+![Merged Dataframe](images/merged_dataframe.png)
+
+### Feature Selection
+
+A heat map was used to find highly correlated stats. For example, as shown below, 'passAvg' and 'passYardPerAtt' were (obviously) very correlated. Based off this, seven features were removed.
+
+![Heat Map 1](images/heat_map_1.png)
+
+A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
+
+
