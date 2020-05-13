@@ -55,7 +55,7 @@ A heat map was used to find highly correlated stats. For example, as shown below
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
 For each team, I predicted that the following would be the most important features:
-| Features                       |
+| Features      | Features       |
 | ------------- | -------------  |
 | Team Score    | Opponent Score |
 | QB Rating     | Sacks          |
