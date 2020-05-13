@@ -11,8 +11,8 @@ def get_bet_lines() -> None:
     it in a CSV for later use.
     '''
     # Get User API key and Password
-    user = input('Enter API Key: ') #API Key from mysportsfeeds
-    password = input('Enter Password: ') #Password from mysportsfeeds 
+    user = 'ed69f2ea-b74f-4632-809b-e61c88' #input('Enter API Key: ') #API Key from mysportsfeeds
+    password = 'MYSPORTSFEEDS'#input('Enter Password: ') #Password from mysportsfeeds 
 
     # Create dictionary that will be template for storing response
     new_record = {
@@ -29,7 +29,7 @@ def get_bet_lines() -> None:
 
     weeks = list(range(1,18))
 
-    seasons = [2014, 2015, 2016, 2017, 2018, 2019]
+    seasons = [2019]
 
     # Loop thru each season and week. Obtain opening game lines
     for each_season in seasons:
@@ -37,20 +37,21 @@ def get_bet_lines() -> None:
         for each_week in weeks:
             url = f"https://api.mysportsfeeds.com/v2.1/pull/nfl/{season}/week/{each_week}/odds_gamelines.json"
             res = requests.get(url, auth=HTTPBasicAuth(user, password))
-            text = json.loads(res.text)
+            text_ = json.loads(res.text)
 
-            for i, each_game in enumerate(text['gameLines']):
+            for i, each_game in enumerate(text_['gameLines']):
+                print(i)
                 game_record = new_record.copy()
-                game_record['game_id'] = text['gameLines'][i]['game']['id']
+                game_record['game_id'] = text_['gameLines'][i]['game']['id']
                 game_record['season'] = season
-                game_record['week'] = text['gameLines'][i]['game']['week']
-                game_record['awayTeam'] = text['gameLines'][i]['game']['awayTeamAbbreviation']
-                game_record['homeTeam'] = text['gameLines'][i]['game']['homeTeamAbbreviation']
-                game_record['awayLine'] = text['gameLines'][i]['lines'][0]['moneyLines'][0]['moneyLine']['awayLine']['american']
-                game_record['homeLine'] = text['gameLines'][i]['lines'][0]['moneyLines'][0]['moneyLine']['homeLine']['american']
+                game_record['week'] = text_['gameLines'][i]['game']['week']
+                game_record['awayTeam'] = text_['gameLines'][i]['game']['awayTeamAbbreviation']
+                game_record['homeTeam'] = text_['gameLines'][i]['game']['homeTeamAbbreviation']
+                game_record['awayLine'] = text_['gameLines'][i]['lines'][0]['moneyLines'][0]['moneyLine']['awayLine']['american']
+                game_record['homeLine'] = text_['gameLines'][i]['lines'][0]['moneyLines'][0]['moneyLine']['homeLine']['american']
                 all_records.append(game_record)
 
     df = pd.DataFrame(all_records)
 
-    df.to_csv('data/betting_lines.csv')
+    df.to_csv('../data/betting_lines.csv')
 

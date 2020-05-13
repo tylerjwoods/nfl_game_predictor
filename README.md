@@ -27,6 +27,8 @@ For anyone who has played sports gambling in their lives, they know one thing: i
 
 Develop an NFL game predictor that predicts which team will win the game. The model explores the important features of making the prediction.
 
+Develop betting schemes that can maximize the chances of winning (beat Vegas).
+
 ## Exploring Data
 
 ### Initial Intake

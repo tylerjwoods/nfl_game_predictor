@@ -2,11 +2,20 @@ import numpy as np
 import pandas as pd
 
 from src.aggregate_team_stats_class import AggregatedStats
-from src.get_team_game_stats import YearlyTeamStats
 from src.clean_game_ids import game_id_cleaner
 
 def main():
+    '''
+    From the function 'obtain_stats.py', the stats_2014_to_2019.csv file was created
+    and stored in the data/ folder.
 
+    The function game_id_cleaner gets rid of incomplete data (missing either the home team and away team)
+
+    The class AggregatedStats takes the average of stats from n_games. 
+
+    This function then ensures that each game has a complete set then stores the dataframe into
+    a CSV 'data/aggregated_2014_to_2019.csv'
+    '''
     # Get the dataframe that was created by get_stats function
     df = pd.read_csv('data/stats_2014_to_2019.csv')
 
