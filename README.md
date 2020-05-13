@@ -63,18 +63,18 @@ A heat map was used to find highly correlated stats. For example, as shown below
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
 For each game, I predicted that the following would be the most important features:
-| Rank         | Features                   |
-| -------------| -------------              |
-| 1            | xHome_Team_Score           |
-| 2            | xAway_Team_Score           |
-| 3            | xHome_Team_Opponent_Score  |
-| 4            | xAway_Team_Opponent_Score  |
-| 5            | xHome_Team_QB_Rating       |
-| 6            | xAway_Team_QB_Rating       |
-| 7            | xHome_Team_Wins_Past_Games |
-| 8            | xAway_Team_Wins_Past_Games |
-| 9            | xHome_Team_Sacks           |
-| 10           | xAway_Team_Sacks           |
+| Rank         | Features                  |
+| -------------| -------------             |
+| 1            | Home_Team_Score           |
+| 2            | Away_Team_Score           |
+| 3            | Home_Team_Opponent_Score  |
+| 4            | Away_Team_Opponent_Score  |
+| 5            | Home_Team_QB_Rating       |
+| 6            | Away_Team_QB_Rating       |
+| 7            | Home_Team_Wins_Past_Games |
+| 8            | Away_Team_Wins_Past_Games |
+| 9            | Home_Team_Sacks           |
+| 10           | Away_Team_Sacks           |
 
 
 ## Model Selection
@@ -99,4 +99,21 @@ As shown, the accuracy doesn't improve by much even by adding in all of the extr
 The full model was built using all of the data from 2014-2018 seasons to develop the important features that the Random Forest found as well as developing an ROC curve to compare against other models.
 
 According to the Random Forest model, the following features were most important:
+
+| Rank         | Features                  |
+| -------------| -------------             |
+| 1            | Away_Team_Score           |
+| 2            | Home_Team_Wins_Past_Games |
+| 3            | Home_Team_Score           |
+| 4            | Home_Team_Opponent_Score  |
+| 5            | Away_Team_QB_Rating       |
+| 6            | Home_Team_QB_Rating       |
+| 7            | Home_Sacks_Allowed        |
+| 8            | Home_Third_Down_Pct       |
+| 9            | Away_Third_Down_Pct       |
+| 10           | Away_Sacks_Allowed        |
+
+And finally for the Random Forest model, the ROC curve and AOC score:
+
+![Random-Forest-ROC-AUC](images/rand_fore_roc_curve)
 
