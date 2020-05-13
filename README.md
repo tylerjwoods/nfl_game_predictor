@@ -50,7 +50,7 @@ The function 'nfl_stats_aggregator.py' takes previous games and averages the sta
 
 ![Aggregated Stats](images/aggregated_stats.png)
 
-Once the stats were aggregated for each team, the away team and home team and to merged into one row for a single row. This was done by merging the dataframe on game_id.
+Once the stats were aggregated for each team, the away team and home team had to be merged into one row for a single row. This was done splitting the dataframe based on if the team was playing at home or away, then merging the two dataframes on game_id.
 
 ![Merged Dataframe](images/merged_dataframe.png)
 

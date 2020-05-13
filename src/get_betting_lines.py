@@ -11,8 +11,8 @@ def get_bet_lines() -> None:
     it in a CSV for later use.
     '''
     # Get User API key and Password
-    user = 'ed69f2ea-b74f-4632-809b-e61c88' #input('Enter API Key: ') #API Key from mysportsfeeds
-    password = 'MYSPORTSFEEDS'#input('Enter Password: ') #Password from mysportsfeeds 
+    user = input('Enter API Key: ') #API Key from mysportsfeeds
+    password = input('Enter Password: ') #Password from mysportsfeeds 
 
     # Create dictionary that will be template for storing response
     new_record = {
@@ -40,7 +40,6 @@ def get_bet_lines() -> None:
             text_ = json.loads(res.text)
 
             for i, each_game in enumerate(text_['gameLines']):
-                print(i)
                 game_record = new_record.copy()
                 game_record['game_id'] = text_['gameLines'][i]['game']['id']
                 game_record['season'] = season
