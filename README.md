@@ -10,7 +10,8 @@
   - [Initial Intake](#initial-intake)
   - [Feature Selection](#feature-selection)
 - [Model Selection](#model-selection)
-  - [Visualizations](#visualizations)
+  - [Logistic Regression](#logistic-regression)
+  - [Random Forest](#random-forest)
 - [Future Considerations](#future-considerations)
 - [License](#license)
 
@@ -18,7 +19,7 @@
 
 ### Context
 
-In the words of Danny Ocean from Ocean's 11
+In the words of Danny Ocean from Ocean's 11:
 
 >"The house always wins. Play long enough, you never change the stakes, the house takes you. Unless, when that perfect hand comes along, you bet big, and then you take the house."
 
@@ -62,6 +63,18 @@ A heat map was used to find highly correlated stats. For example, as shown below
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
 For each game, I predicted that the following would be the most important features:
+| Home_Team_Features | Away_Team_Features|
+| -------------      | -------------     |
+| Team Score         | Team Score        |
+| QB Rating          | QB Rating         |
+| Opponent Score     | Opponent Score    |
+| Sacks              | Sacks             |
+| Interceptions      | Interceptions     |
+| Passing TDs        | Passing TDs       |
+| Fumbles            | Fumbles           |
+| Wins Past Games    | Wins Past Games   |
+| Passing Ints       | Passing Ints      |
+
 | Features      | Features       |
 | ------------- | -------------  |
 | Team Score    | Opponent Score |
@@ -71,3 +84,23 @@ For each game, I predicted that the following would be the most important featur
 | Passing Ints  |                |
 
 
+## Model Selection
+
+### Logistic Regression
+
+This is a classification problem, with my target being if the home team won (1) or lost (0). First, I looked at a logistic regression model but scrapped that quickly when p-values for the various features were all above 0.05 (most well above that threshold).
+
+### Random Forest
+
+I then looked at a random forest model and using the training data using only the stats that I proposed were important, varied the number of trees and used a 5 K-Fold split to get an average of the accuracy. The accuracy, precision, and recall is shown on the plot below vs the number of trees. For this project, we really only care about accuracy. The accuracy for this set is right around 62% even as the number of trees increase.
+
+![Random-Forest-K-Fold-My-Stats](images/rand_fore_vary_num_trees_my_stats.png)
+
+
+Then using all of the stats available, the number of trees were varied and used a 5 K-Fold split again to get an average of the accuracy.
+
+![Random-Forest-K-Fold-All-Stats](images/rand_fore_vary_num_trees.png)
+
+As shown, the accuracy doesn't improve by much even by adding in all of the extra features. Also, as shown, good number of trees to choose is 500 for this model.
+
+The full model was built using all of the data from 2014-2018 seasons to develop the important features that the Random Forest found as well as developing an ROC curve to compare against other models.
