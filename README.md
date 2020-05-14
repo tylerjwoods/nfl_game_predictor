@@ -63,20 +63,20 @@ A heat map was used to find highly correlated stats. For example, as shown below
 
 A goal of this study was to find if I could accurately predict important features using my domain knowledge of the NFL.
 
-For each game, I predicted that the following would be the most important features:
-| Rank         | Features                  |
-| -------------| -------------             |
-| 1            | Home_Team_Score           |
-| 2            | Away_Team_Score           |
-| 3            | Home_Team_Opponent_Score  |
-| 4            | Away_Team_Opponent_Score  |
-| 5            | Home_Team_QB_Rating       |
-| 6            | Away_Team_QB_Rating       |
-| 7            | Home_Team_Wins_Past_Games |
-| 8            | Away_Team_Wins_Past_Games |
-| 9            | Home_Team_Sacks           |
-| 10           | Away_Team_Sacks           |
+For each game, I predicted that the following would be the most important features. As discussed below, I looked at a random forest model and gradient boosted model. A summary of my predicted important features and important features from the models:
 
+| Rank         | My Features               | Random Forest Features    | Gradient Boosted Features   | 
+| -------------| -------------             | -------------             |-------------                |
+| 1            | Home_Team_Score           | Away_Team_Score           | Away_Team_Score             |
+| 2            | Away_Team_Score           | Home_Team_Wins_Past_Games | Home_Team_Wins_Past_Games   |
+| 3            | Home_Team_Opponent_Score  | Home_Team_Score           | Home_Team_Score             |
+| 4            | Away_Team_Opponent_Score  | Home_Team_Opponent_Score  | Home_Team_Punt_Inside_20_Pct|
+| 5            | Home_Team_QB_Rating       | Away_Team_QB_Rating       | Home_Team_Opponent_Score    |
+| 6            | Away_Team_QB_Rating       | Home_Team_QB_Rating       | Home_Team_Sacks_Allowed     |
+| 7            | Home_Team_Wins_Past_Games | Home_Sacks_Allowed        | Away_Team_Sacks_Allowed     |
+| 8            | Away_Team_Wins_Past_Games | Home_Third_Down_Pct       | Away_Team_QB_Rating         |
+| 9            | Home_Team_Sacks           | Away_Third_Down_Pct       | Home_Team_Third_Down_Pct    |
+| 10           | Away_Team_Sacks           | Away_Sacks_Allowed        | Home_Team_Sack_Yards        |
 
 ## Model Selection
 
@@ -99,21 +99,6 @@ As shown, the accuracy doesn't improve by much even by adding in all of the extr
 
 The full model was built using all of the data from 2014-2018 seasons to develop the important features that the Random Forest found as well as developing an ROC curve to compare against other models.
 
-According to the Random Forest model, the following features were most important:
-
-| Rank         | Features                  |
-| -------------| -------------             |
-| 1            | Away_Team_Score           |
-| 2            | Home_Team_Wins_Past_Games |
-| 3            | Home_Team_Score           |
-| 4            | Home_Team_Opponent_Score  |
-| 5            | Away_Team_QB_Rating       |
-| 6            | Home_Team_QB_Rating       |
-| 7            | Home_Sacks_Allowed        |
-| 8            | Home_Third_Down_Pct       |
-| 9            | Away_Third_Down_Pct       |
-| 10           | Away_Sacks_Allowed        |
-
 And finally for the Random Forest model, the ROC curve and AOC score:
 
 ![Random-Forest-ROC-AUC](images/rand_fore_roc_curve.png)
@@ -128,28 +113,14 @@ And for using all stats:
 
 ![Gradient-Boosted-K-Fold-All-Stats](images/gradient_boost_vary_learning_rate_all_stats.png)
 
-According to the Gradient Boosted model, the following features were most important:
-
-| Rank         | Features                    |
-| -------------| -------------               |
-| 1            | Away_Team_Score             |
-| 2            | Home_Team_Wins_Past_Games   |
-| 3            | Home_Team_Score             |
-| 4            | Home_Team_Punt_Inside_20_Pct|
-| 5            | Home_Team_Opponent_Score    |
-| 6            | Home_Team_Sacks_Allowed     |
-| 7            | Away_Team_Sacks_Allowed     |
-| 8            | Away_Team_QB_Rating         |
-| 9            | Home_Team_Third_Down_Pct    |
-| 10           | Home_Team_Sack_Yards        |
 
 The ROC curve and AOC curve for gradient boosted:
 
-![Random-Forest-ROC-AUC](images/gradient_boost_roc_curve.png)
+![Gradient-Boosted-ROC-AUC](images/gradient_boost_roc_curve.png)
 
 ## In Action
 
-So what about making some money? 
+So what about making some money? Since the Gradient Boosted model showed the best accuracy and ROC score, that model was chosen to gamble on 2019 NFL games.
 
 As dicussed earlier, the number of games that was averaged across was originally chosen at six. I varied that number to the previous 1 game, 2 games, and all the way up to 6 games.
 
