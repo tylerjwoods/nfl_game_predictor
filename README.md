@@ -135,3 +135,5 @@ https://nbviewer.jupyter.org/github/tylerjwoods/nfl_game_predictor/blob/master/g
 ## Future Considerations
 
 Using Vegas's prediction of the which team is favored will probably increase the accuracy of the model.
+
+Consider using injuries as a feature.
