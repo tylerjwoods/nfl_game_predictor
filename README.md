@@ -15,7 +15,6 @@
   - [Gradient Boosting](#gradient-boosting)
 - [In Action](#in-action)
 - [Future Considerations](#future-considerations)
-- [License](#license)
 
 ## Basic Overview
 
@@ -149,3 +148,19 @@ The ROC curve and AOC curve for gradient boosted:
 ![Random-Forest-ROC-AUC](images/gradient_boost_roc_curve.png)
 
 ## In Action
+
+So what about making some money? 
+
+As dicussed earlier, the number of games that was averaged across was originally chosen at six. I varied that number to the previous 1 game, 2 games, and all the way up to 6 games.
+
+When a the model makes a prediction, it gives the probability of the home team winning or the away team winning. For example, the model predicts that there is a 70% chance of the home team winning and 30% chance of the away team winning.
+
+What if I only want to make a $100 bet if the model is 65% sure that it is correct? What about 75% sure? As we increase this threshold, the number of games that I bet on will decrease but I have a higher chance (hopefully) of winning money.
+
+An interactive chart is best seen here:
+
+https://nbviewer.jupyter.org/github/tylerjwoods/nfl_game_predictor/blob/master/gambling_plotly_nfl.ipynb
+
+## Future Considerations
+
+Using Vegas's prediction of the which team is favored will probably increase the accuracy of the model.
