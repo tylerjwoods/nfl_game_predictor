@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import copy
 
-def merge_game_ids(df_1, df_2):
+def merge_game_ids(df_1, df_2,num_games):
     '''
     Merges df_home and df_away into one 
     dataframe for analysis
@@ -66,7 +66,7 @@ def merge_game_ids(df_1, df_2):
     for each_column in full_df.columns.values:
         full_organized[each_column] = full_df.loc[:,each_column]
     
-    num_games = int(input('Input Number of Games to Aggregate: '))
+    #num_games = int(input('Input Number of Games to Aggregate: '))
     file_name = 'data/merged_games_{}.csv'.format(num_games)
     # Store dataframe in a CSV for later use
     full_organized.to_csv(file_name,index=False)
