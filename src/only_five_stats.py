@@ -13,9 +13,8 @@ def few_stats(df):
     '''
     df_ = df[['game_id','season','week','home_team','away_team','home_win_game',\
         'home_team_score','away_team_score',\
-        'away_sacks', \
         'home_opponent_score',\
-        'home_wins_past_games',]]
+        'home_wins_past_games','away_wins_past_games']]
 
 
     return df_

@@ -82,7 +82,7 @@ For each game, I predicted that the following would be the most important featur
 
 ### Logistic Regression
 
-This is a classification problem, with my target being if the home team won (1) or lost (0). First, I looked at a logistic regression model but most p-values for the various features were all above 0.05 (most well above that threshold) So I limited the only the statistically signficant features (only five were found to be signficant). The ROC curve is shown below:
+This is a classification problem, with my target being if the home team won (1) or lost (0). First, I looked at a logistic regression model but most p-values for the various features were all above 0.05 (most well above that threshold) so I limited the only the statistically signficant features (only five were found to be signficant). The ROC curve is shown below. The accuracy for this model was approximately 65%.
 
 ![logistic-reg-roc](images/logistic_regression_roc_curve.png)
 
@@ -122,7 +122,7 @@ The ROC curve and AOC curve for gradient boosted:
 
 ## In Action
 
-So what about making some money? Since the Gradient Boosted model showed the best accuracy and ROC score, that model was chosen to gamble on 2019 NFL games.
+So what about making some money? Since the logstic model showed the best accuracy and ROC score, that model was chosen to gamble on 2019 NFL games.
 
 As dicussed earlier, the number of games that was averaged across was originally chosen at six. I varied that number to the previous 1 game, 2 games, and all the way up to 6 games.
 
@@ -130,7 +130,9 @@ When a the model makes a prediction, it gives the probability of the home team w
 
 What if I only want to make a $100 bet if the model is 65% sure that it is correct? What about 75% sure? As we increase this threshold, the number of games that I bet on will decrease but I have a higher chance (hopefully) of winning money.
 
-An interactive chart is best seen here:
+![logstic-regression-gambling][(images/gains_losses_thresholds_logstic.png)]
+
+An interactive chart, using gradient boosting, is best seen here:
 
 https://nbviewer.jupyter.org/github/tylerjwoods/nfl_game_predictor/blob/master/gambling_plotly_nfl.ipynb
 
