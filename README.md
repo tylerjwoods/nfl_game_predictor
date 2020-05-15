@@ -128,7 +128,7 @@ As dicussed earlier, the number of games that was averaged across was originally
 
 When a the model makes a prediction, it gives the probability of the home team winning or the away team winning. For example, the model predicts that there is a 70% chance of the home team winning and 30% chance of the away team winning.
 
-What if I only want to make a $100 bet if the model is 65% sure that it is correct? What about 75% sure? As we increase this threshold, the number of games that I bet on will decrease but I have a higher chance (hopefully) of winning money.
+What if I only want to make a `$`100 bet if the model is 65% sure that it is correct? What about 75% sure? As we increase this threshold, the number of games that I bet on will decrease but I have a higher chance (hopefully) of winning money.
 
 ![logstic-regression-gambling][(images/gains_losses_thresholds_logstic.png)]
 
