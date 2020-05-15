@@ -120,6 +120,9 @@ The ROC curve and AOC curve for gradient boosted:
 
 ![Gradient-Boosted-ROC-AUC](images/gradient_boost_roc_curve.png)
 
+![logstic-regression-gambling][(images/gains_losses_thresholds_logstic.png)]
+
+
 ## In Action
 
 So what about making some money? Since the logstic model showed the best accuracy and ROC score, that model was chosen to gamble on 2019 NFL games.
