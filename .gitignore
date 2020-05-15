@@ -140,3 +140,5 @@ gradient_boosted.ipynb
 vary_aggregated_games.ipynb
 plotly_dash_nfl.ipynb
 shap_practice.ipynb
+PCA_analysis.ipynb
+logistic_reg_gambling.ipynb

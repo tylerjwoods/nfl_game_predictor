@@ -2,7 +2,9 @@ import numpy as np
 import pandas as pd
 
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
+from sklearn.linear_model import LogisticRegression
 from src.remove_correlated_stats import remove_corr_stats
+from src.my_predicted_stats import my_pred_stats
 from sklearn.metrics import recall_score, precision_score, accuracy_score
 
 def calc_poss_winnings(bet, line):
@@ -29,17 +31,27 @@ def gamb_imp(num_games=3, threshold=0.5):
     df_test.reset_index(inplace=True, drop=True)
     df_train = remove_corr_stats(df_train)
     df_test = remove_corr_stats(df_test)
+    
+    ## ONLY MY STATS
+    df_train = my_pred_stats(df_train)
+    df_test = my_pred_stats(df_test)
+    
+    ## ONLY IMPORTANT STATS
+    
+    df_train.drop(columns=['home_qb_rating','away_qb_rating','home_sacks','away_wins_past_games','away_opponent_score'], inplace=True) 
+    df_test.drop(columns=['home_qb_rating','away_qb_rating','home_sacks','away_wins_past_games','away_opponent_score'], inplace=True)
 
     X_train = np.array(df_train.drop(columns=['game_id', 'season', 'week', 'home_team','away_team','home_win_game']))
     y_train = np.array(df_train.loc[:,'home_win_game'])
     X_test = np.array(df_test.drop(columns=['game_id', 'season', 'week', 'home_team','away_team','home_win_game']))
     y_test = np.array(df_test.loc[:,'home_win_game'])
 
-    model = GradientBoostingClassifier(learning_rate=0.01,
-                                   n_estimators=500,
-                                   min_samples_leaf=5,
-                                   max_depth=2,
-                                   subsample=0.5)
+#     model = GradientBoostingClassifier(learning_rate=0.01,
+#                                    n_estimators=500,
+#                                    min_samples_leaf=5,
+#                                    max_depth=2,
+#                                    subsample=0.5)
+    model = LogisticRegression(solver='lbfgs')
     model.fit(X_train, y_train)
     #y_predict = model.predict(X_test)
     #y_true = y_test

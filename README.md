@@ -82,7 +82,9 @@ For each game, I predicted that the following would be the most important featur
 
 ### Logistic Regression
 
-This is a classification problem, with my target being if the home team won (1) or lost (0). First, I looked at a logistic regression model but scrapped that quickly when p-values for the various features were all above 0.05 (most well above that threshold).
+This is a classification problem, with my target being if the home team won (1) or lost (0). First, I looked at a logistic regression model but most p-values for the various features were all above 0.05 (most well above that threshold) So I limited the only the statistically signficant features (only five were found to be signficant). The ROC curve is shown below:
+
+![logistic-reg-roc](images/logistic_regression_roc_curve.png)
 
 ### Random Forest
 
@@ -137,3 +139,5 @@ https://nbviewer.jupyter.org/github/tylerjwoods/nfl_game_predictor/blob/master/g
 Using Vegas's prediction of the which team is favored will probably increase the accuracy of the model.
 
 Consider using injuries as a feature.
+
+Scrape games from previous seasons.
