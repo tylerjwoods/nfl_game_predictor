@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>NFL Game Predictor</title>
+  <meta name="description" content="Logistic Regression">
+  <meta name="author" content="Tyler Woods">
+  <script src="{{ url_for('static', filename='brython.js')}}"></script>
+  <script src="{{ url_for('static', filename='brython_stdlib.js')}}"></script>
+
+</head>
+
+<body onload="brython()">
+    <script type="text/python" src="{{ url_for('static', filename='brapp.py') }}"></script>
+
+    <h1 style="color:lightseagreen">Will The Home Team Win The Game (Using Logistic Regression Modeling)</h1>
+    <p style="color:green">This app will return the probability that the home team will win.</p>
+    <p style="color:green">Please enter data for the past three (3) games for the home team and away team.</p>
+
+    <div>
+        <ul>
+        <!-- These have id's so that later we can pull out data using js. -->
+            <li><span>Home Team Score (Average Last 3 Games):</span> <input id="hts"></input></li>
+            <li><span>Away Team Score (Average Last 3 Games):</span> <input id="ats"></input></li>
+            <li><span>Home Team's Opponent Score (Average Last 3 Games):</span> <input id="hos"></input></li>
+            <li><span>Home Team's Wins (Sum Last 3 Games):</span> <input id="hwpg"></input></li>
+            <li><span>Away Team's Wins (Sum Last 3 Games):</span> <input id="awpg"></input></li>
+        </ul>
+    </div>
+
+    <div>
+        <button type="button" id="solve">Solve!</button>
+    </div>
+
+    <div>
+        <!-- The span has an id so that later we can fill in the solution
+             using js. -->
+        <p> The probability is: </p>
+        <h2 style="color:SeaGreen"> <span id="solution"></span> </h2>
+
+</body>
+</html>
